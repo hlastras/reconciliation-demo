@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reconcile-demo
+  labels:
+    app: reconcile-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reconcile-demo
+  template:
+    metadata:
+      labels:
+        app: reconcile-demo
+        # Make the Pod itself carry ArgoCD's instance label to trigger reconcile on Pod updates:
+        argocd.argoproj.io/instance: demo-with-label
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:stable
+          ports:
+            - containerPort: 80
