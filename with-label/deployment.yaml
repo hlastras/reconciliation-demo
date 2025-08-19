@@ -2,18 +2,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reconcile-demo
+  name: reconcile-demo-2
   labels:
-    app: reconcile-demo
+    app: reconcile-demo-2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reconcile-demo
+      app: reconcile-demo-2
   template:
     metadata:
       labels:
-        app: reconcile-demo
+        app: reconcile-demo-2
         # Make the Pod itself carry ArgoCD's instance label to trigger reconcile on Pod updates:
         argocd.argoproj.io/instance: demo-with-label
     spec:
