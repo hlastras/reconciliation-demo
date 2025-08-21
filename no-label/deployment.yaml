@@ -5,6 +5,7 @@ metadata:
   name: reconcile-demo-1
   labels:
     app: reconcile-demo-1
+    argocd.argoproj.io/ignore-resource-updates: true
 spec:
   replicas: 1
   selector:
@@ -14,7 +15,7 @@ spec:
     metadata:
       labels:
         app: reconcile-demo-1
-        argocd.argoproj.io/ignore-resource-updates: "true"
+        argocd.argoproj.io/ignore-resource-updates: true
     spec:
       containers:
         - name: nginx
